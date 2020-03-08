@@ -61,7 +61,7 @@ module.exports = {
   context: path.resolve(__dirname, 'src'),
   mode: 'development', // default
   entry: {
-    main: ['@babel/polyfill', './index.js'],
+    main: ['@babel/polyfill', './index.jsx'],
     analytics: './analytics.ts',
   },
   output: {
@@ -131,7 +131,10 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        use: babelOptions(),
+        loader: {
+          loader: 'babel-loader',
+          options: babelOptions(),
+        },
       },
       {
         test: /\.ts$/,
@@ -139,6 +142,14 @@ module.exports = {
         loader: {
           loader: 'babel-loader',
           options: babelOptions('@babel/preset-typescript'),
+        },
+      },
+      {
+        test: /\.jsx$/,
+        exclude: /node_modules/,
+        loader: {
+          loader: 'babel-loader',
+          options: babelOptions('@babel/preset-react'),
         },
       },
     ],
