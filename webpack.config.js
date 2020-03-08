@@ -4,7 +4,7 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 module.exports = {
   context: path.resolve(__dirname, 'src'),
-  mode: 'development',
+  mode: 'development', // default
   entry: {
     main: './index.js',
     analytics: './analytics.js',
@@ -24,6 +24,14 @@ module.exports = {
       {
         test: /\.css$/,
         use: ['style-loader', 'css-loader'],
+      },
+      {
+        test: /\.(png|jpg|svg|gif)$/,
+        use: ['file-loader'],
+      },
+      {
+        test: /\.(ttf|woff|woff2 |eot)$/,
+        use: ['file-loader'],
       },
     ],
   },
