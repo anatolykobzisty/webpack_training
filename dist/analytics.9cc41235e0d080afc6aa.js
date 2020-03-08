@@ -93,7 +93,7 @@
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-eval("function createAnalitics() {\n  let counter = 0;\n  let isDestroyed = false;\n\n  const listener = () => (counter += 1);\n\n  document.addEventListener('click', listener);\n\n  return {\n    destroy() {\n      document.removeEventListener('click', listener);\n      isDestroyed = true;\n    },\n    getClick() {\n      if (isDestroyed) {\n        return `Analitics is destroyed. Total clicks = ${counter}`;\n      }\n      return counter;\n    },\n  };\n}\n\nwindow.analitics = createAnalitics();\n\n\n//# sourceURL=webpack:///./src/analytics.js?");
+eval("function createAnalitics() {\n  let counter = 0;\n  let destroyed = false;\n\n  const listener = () => (counter += 1);\n\n  document.addEventListener('click', listener);\n\n  return {\n    destroy() {\n      document.removeEventListener('click', listener);\n      destroyed = true;\n    },\n    getClick() {\n      if (isDestroyed) {\n        return `Analitics is destroyed. Total clicks = ${counter}`;\n      }\n      return counter;\n    },\n  };\n}\n\nwindow.analitics = createAnalitics();\n\nconsole.log('test');\n\n\n//# sourceURL=webpack:///./src/analytics.js?");
 
 /***/ })
 
