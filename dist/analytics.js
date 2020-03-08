@@ -148,22 +148,22 @@
 /******/
 /******/
 /******/ 	// add entry module to deferred list
-/******/ 	deferredModules.push(["./analytics.js","vendors~analytics~main"]);
+/******/ 	deferredModules.push(["./analytics.ts","vendors~analytics~main"]);
 /******/ 	// run deferred modules when ready
 /******/ 	return checkDeferredModules();
 /******/ })
 /************************************************************************/
 /******/ ({
 
-/***/ "./analytics.js":
+/***/ "./analytics.ts":
 /*!**********************!*\
-  !*** ./analytics.js ***!
+  !*** ./analytics.ts ***!
   \**********************/
 /*! no exports provided */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
-eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ \"../node_modules/jquery/dist/jquery.js\");\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);\n\n\nfunction createAnalitics() {\n  var counter = 0;\n  var destroyed = false;\n\n  var listener = function listener() {\n    return counter += 1;\n  };\n\n  jquery__WEBPACK_IMPORTED_MODULE_0__(document).on('click', listener);\n  return {\n    destroy: function destroy() {\n      jquery__WEBPACK_IMPORTED_MODULE_0__(document).off('click', listener);\n      destroyed = true;\n    },\n    getClick: function getClick() {\n      if (isDestroyed) {\n        return \"Analitics is destroyed. Total clicks = \".concat(counter);\n      }\n\n      return counter;\n    }\n  };\n}\n\nwindow.analitics = createAnalitics();\nconsole.log('test');\n\n//# sourceURL=webpack:///./analytics.js?");
+eval("__webpack_require__.r(__webpack_exports__);\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! jquery */ \"../node_modules/jquery/dist/jquery.js\");\n/* harmony import */ var jquery__WEBPACK_IMPORTED_MODULE_0___default = /*#__PURE__*/__webpack_require__.n(jquery__WEBPACK_IMPORTED_MODULE_0__);\n\n\nfunction createAnalytics() {\n  var counter = 0;\n  var destroyed = false;\n\n  var listener = function listener() {\n    return counter++;\n  };\n\n  jquery__WEBPACK_IMPORTED_MODULE_0__(document).on('click', listener);\n  return {\n    destroy: function destroy() {\n      jquery__WEBPACK_IMPORTED_MODULE_0__(document).off('click', listener);\n      destroyed = true;\n    },\n    getClicks: function getClicks() {\n      if (destroyed) {\n        return \"Analytics is destroyed. Total clicks = \".concat(counter);\n      }\n\n      return counter;\n    }\n  };\n}\n\nwindow['analytics'] = createAnalytics();\n\n//# sourceURL=webpack:///./analytics.ts?");
 
 /***/ })
 
