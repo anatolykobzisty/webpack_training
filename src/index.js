@@ -9,7 +9,9 @@ import csv from './assets/data.csv';
 
 const post = new Post('Webpack', WebpackLogo);
 
-$('pre').html(post.toString());
+$('pre')
+  .addClass('code')
+  .html(post.toString());
 
 // console.log(json);
 // console.log(xml);
