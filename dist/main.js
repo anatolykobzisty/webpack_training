@@ -217,6 +217,7 @@ var Util = function Util() {
 
 _defineProperty(Util, "id", Date.now());
 
+var unused = 42;
 console.log('Util Id:', Util.id);
 
 /***/ }),

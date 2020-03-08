@@ -8,4 +8,6 @@ class Util {
   static id = Date.now();
 }
 
+const unused = 42;
+
 console.log('Util Id:', Util.id);
