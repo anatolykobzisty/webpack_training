@@ -31,7 +31,7 @@ module.exports = {
     analytics: './analytics.js',
   },
   output: {
-    filename: '[name].[contenthash].js',
+    filename: '[name].[hash].js',
     path: path.resolve(__dirname, 'dist'),
   },
   resolve: {
@@ -61,7 +61,7 @@ module.exports = {
       },
     ]),
     new MiniCssExtractPlugin({
-      filename: '[name].[contenthash].css',
+      filename: '[name].[hash].css',
     }),
   ],
   module: {
@@ -77,6 +77,20 @@ module.exports = {
             },
           },
           'css-loader',
+        ],
+      },
+      {
+        test: /\.less$/,
+        use: [
+          {
+            loader: MiniCssExtractPlugin.loader,
+            options: {
+              hmr: isDev,
+              reloadAll: true,
+            },
+          },
+          'css-loader',
+          'less-loader',
         ],
       },
       {
